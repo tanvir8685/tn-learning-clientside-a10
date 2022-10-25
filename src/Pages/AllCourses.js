@@ -12,10 +12,8 @@ const AllCourses = () => {
     },[])
     return (
         <div>
-            <h1>This is all Courses in card</h1>
-            {/* {
-                subjects.map(sub=><p>me</p>)
-            } */}
+            
+           
             <div className='mt-5'>
             <Row xs={1} md={2} className="g-4">
                 {

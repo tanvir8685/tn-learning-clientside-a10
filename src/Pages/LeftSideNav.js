@@ -12,7 +12,7 @@ const LeftSideNav = () => {
     },[])
     return (
         <div>
-            <h2>All Subject {categories.length}</h2>
+            <h2 className='mt-5'>Course List</h2>
             <div>
                 {
                     categories.map(subject=><p key={subject.course_id}>
