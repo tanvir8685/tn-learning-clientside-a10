@@ -1,44 +1,49 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 
+
 const HeadCaru = () => {
     return (
         <Carousel>
       <Carousel.Item>
         <img
+            height='550'
+          
           className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=373940"
+          src="https://media.istockphoto.com/photos/stack-of-books-and-multicolored-wooden-pencils-picture-id1180867776?s=612x612"
           alt="First slide"
         />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <Carousel.Caption className='fs-1 '>
+          <h1 className='fw-bold h-50'>TN_LEARNING</h1>
+          <p className='text-primary fw-bold'>One of the best learnig paltfrom</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
+            height='550'
           className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
+          src="https://media.istockphoto.com/photos/education-or-back-to-school-concept-colorful-school-supplies-with-picture-id1172096478"
           alt="Second slide"
         />
 
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <Carousel.Caption className='fs-1'>
+          <h1 className='fw-bold'>TN_LEARNING</h1>
+          <h1 className='text-primary  fw-bold'>One of the best learning paltfrom.</h1>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
+        height='550'
           className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
+          src="https://media.istockphoto.com/photos/pencil-holder-books-and-apple-picture-id1333087191"
           alt="Third slide"
         />
 
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+        <Carousel.Caption className='fs-1'>
+          <h1 className='fw-bold '>TN_LEARNING</h1>
+          <h1 className='text-dark fw-bold '>
+            One of the best learnig paltfrom
+          </h1>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
