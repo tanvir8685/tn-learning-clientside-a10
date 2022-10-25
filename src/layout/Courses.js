@@ -9,8 +9,8 @@ const Courses = () => {
             <h2 className='text-center'>All of our Courses </h2>
             <Container>
                 <Row>
-                    <Col lg='4'><LeftSideNav></LeftSideNav></Col>
-                    <Col lg='8'><Outlet></Outlet></Col>
+                    <Col lg='2'><LeftSideNav></LeftSideNav></Col>
+                    <Col lg='10'><Outlet></Outlet></Col>
                 </Row>
             </Container>
         </div>
