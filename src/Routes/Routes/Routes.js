@@ -3,6 +3,7 @@ import Courses from "../../layout/Courses";
 import Main from "../../layout/Main";
 import AllCourses from "../../Pages/AllCourses";
 import Blog from "../../Pages/Blog";
+import Course from "../../Pages/Course";
 import FaQ from "../../Pages/FaQ";
 import HeadCaru from "../../Pages/HeadCaru";
 import Login from "../../Pages/Login";
@@ -24,7 +25,12 @@ export  const routes=createBrowserRouter([
             children:[
                 {path:'/courses',
                 element:<AllCourses></AllCourses>
-            }
+                },
+                {
+                    path:'/courses/:id',
+                    element:<Course></Course>
+                }
+
             ]
            },
            {
