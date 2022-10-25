@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 
 const Subject = ({sub}) => {
-    console.log(sub)
+    
     const{course_name,course_id}=sub;
-    console.log(course_id)
+    
     return (
         <div>
             <Col>
