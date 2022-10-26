@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import {  Card } from 'react-bootstrap';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Course = () => {
     const subject=useLoaderData();
     console.log(subject)
-    const {course_name,img,details,duration,classT}=subject;
+    const {course_name,course_id,img,details,duration,classT}=subject;
     return (
         <div>
             
@@ -21,7 +21,9 @@ const Course = () => {
           <p>Duration:{duration}</p>
           <p>Total Class:{classT}</p>
         </Card.Text>
-        <Button variant="primary">Get Premium Access</Button>
+        <Link to={`/courses/1/date${course_id}`}
+        ><button>Get Premium Access</button></Link>
+        
       </Card.Body>
     </Card>
         </div>
