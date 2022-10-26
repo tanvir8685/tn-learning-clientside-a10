@@ -2,15 +2,23 @@ import React from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle,FaGithub } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { useState } from 'react';
+
 
 const Login = () => {
+    const [error,setError]=useState('');
+    
 
     const {providerLogin,signIn}=useContext(AuthContext);
+
+    const navigate=useNavigate();
+
+    // navigate('/courses')
     const handleSubmit=event=>{
         event.preventDefault();
         const form=event.target;
@@ -21,9 +29,17 @@ const Login = () => {
             const user=result.user;
 
             console.log(user);
+
             form.reset();
+            setError('');
+            navigate('/courses');
         })
-        .catch(error=>console.error(error))
+        .catch(error=>
+            {
+                console.error(error)
+                setError(error.message);
+            
+            })
     }
 
 
@@ -59,12 +75,13 @@ const Login = () => {
         <Form.Control name="password" type="password" placeholder="Password" required />
       </Form.Group>
       <small className='mb-2'>New user, Please <Link to='/register'> Register..</Link>  </small> <br />
-      <Form.Text className="text-danger">
-          We'll never share your email with anyone else.
-        </Form.Text> <br />
+      
       <Button variant="primary" className='mt-3' type="submit">
         Log In
       </Button>
+      <Form.Text className="text-danger">
+         {error}
+        </Form.Text> <br />
     </Form>
         </div>
     );

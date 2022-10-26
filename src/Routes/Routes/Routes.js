@@ -42,7 +42,7 @@ export  const routes=createBrowserRouter([
             ]
            },
            {
-            path:'/login',
+            path:'login',
             element:<Login></Login>
            },
            {
