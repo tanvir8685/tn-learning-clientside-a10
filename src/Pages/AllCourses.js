@@ -15,7 +15,7 @@ const AllCourses = () => {
             
            
             <div className='mt-5'>
-            <Row xs={1} md={2} className="g-4">
+            <Row  xs={1} md={2} className="g-4">
                 {
                     subjects.map(sub=><Subject
                     key={sub.course_id}

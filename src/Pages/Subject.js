@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col } from 'react-bootstrap';
+import { Button, Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -9,8 +9,8 @@ const Subject = ({sub}) => {
     
     return (
         <div>
-            <Col>
-          <Card>
+            <Col className='border border-info rounded'>
+          <Card >
             <Card.Img height='300' variant="top" src={img} />
             <Card.Body>
               <Card.Title>{course_name}</Card.Title>
@@ -20,7 +20,7 @@ const Subject = ({sub}) => {
               
              
             </Card.Body>
-            <Link className='text-center' to={course_id}><button className='w-100'>More</button></Link>
+            <Link className='text-center' to={course_id}><Button variant="outline-info" className='w-100'>More</Button></Link>
           </Card>
         </Col>
         

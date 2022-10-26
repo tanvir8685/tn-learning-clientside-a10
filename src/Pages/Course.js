@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Card } from 'react-bootstrap';
+import {  Button, Card } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const Course = () => {
@@ -9,7 +9,7 @@ const Course = () => {
     return (
         <div>
             
-            <Card  >
+            <Card className='border border-info rounded'  >
             <Card.Title className='mx-5 mt-2 fs-1 fw-bold'>{course_name}</Card.Title>
       <Card.Img className='px-5' height='350' variant="top" src={img} />
       <Card.Body className='px-5'>
@@ -22,7 +22,7 @@ const Course = () => {
           <p>Total Class:{classT}</p>
         </Card.Text>
         <Link to={`/courses/1/date${course_id}`}
-        ><button>Get Premium Access</button></Link>
+        ><Button variant="outline-info" className='w-100  '>Get Premium Access</Button></Link>
         
       </Card.Body>
     </Card>
