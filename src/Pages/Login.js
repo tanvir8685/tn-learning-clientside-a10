@@ -4,14 +4,32 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { FaGoogle,FaGithub } from "react-icons/fa";
+import { useContext } from 'react';
+import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
+
+    const {providerLogin}=useContext(AuthContext);
+
+    const googleProvider= new GoogleAuthProvider()
+    
+
+    const handleGoogleSignIn=()=>{
+        providerLogin(googleProvider)
+        .then(result=>{
+            const user =result.user;
+            console.log(user);
+        })
+        .catch(error=>console.error(error));
+
+    }
     return (
         <div className='container '>
             
             <Form className='w-50 mx-auto' >
             <ButtonGroup vertical className='text-center' >
-      <Button className='mb-2 mt-2'><FaGoogle/> Log in with Google</Button>
+      <Button onClick={handleGoogleSignIn} className='mb-2 mt-2'><FaGoogle/> Log in with Google</Button>
       <Button className='mb-3' variant="dark"><FaGithub></FaGithub> Log in with GitHub</Button>
       </ButtonGroup>
       <h4>You can also Log in with email and password </h4>
