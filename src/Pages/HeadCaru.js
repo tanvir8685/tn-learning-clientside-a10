@@ -4,7 +4,7 @@ import { Carousel } from 'react-bootstrap';
 
 const HeadCaru = () => {
     return (
-        <Carousel>
+        <Carousel className='container'>
       <Carousel.Item>
         <img
             height='550'
