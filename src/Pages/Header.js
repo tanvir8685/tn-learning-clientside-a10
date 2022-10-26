@@ -40,7 +40,7 @@ const Header = () => {
                         {
                             user?.uid ?
                                 <>
-                                    <span> {user?.displayName} </span>
+                                    <span className='text-primary me-2'> {user?.displayName} </span>
                                     {
 
                                         user?.photoURL ?
