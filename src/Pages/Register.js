@@ -8,7 +8,7 @@ const Register = () => {
         <div className='container '>
             <Form className='w-50 mx-auto' >
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3" controlId="formBasicFullName">
         <Form.Label>Full Name</Form.Label>
         <Form.Control name='name' type="text" placeholder="Full Name" />
       </Form.Group>
