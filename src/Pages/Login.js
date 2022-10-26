@@ -10,7 +10,22 @@ import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
 
-    const {providerLogin}=useContext(AuthContext);
+    const {providerLogin,signIn}=useContext(AuthContext);
+    const handleSubmit=event=>{
+        event.preventDefault();
+        const form=event.target;
+        const email=form.email.value;
+        const password=form.password.value;
+        signIn(email,password)
+        .then(result=>{
+            const user=result.user;
+
+            console.log(user);
+            form.reset();
+        })
+        .catch(error=>console.error(error))
+    }
+
 
     const googleProvider= new GoogleAuthProvider()
     
@@ -27,7 +42,7 @@ const Login = () => {
     return (
         <div className='container '>
             
-            <Form className='w-50 mx-auto' >
+            <Form onSubmit={handleSubmit} className='w-50 mx-auto' >
             <ButtonGroup vertical className='text-center' >
       <Button onClick={handleGoogleSignIn} className='mb-2 mt-2'><FaGoogle/> Log in with Google</Button>
       <Button className='mb-3' variant="dark"><FaGithub></FaGithub> Log in with GitHub</Button>
@@ -35,13 +50,13 @@ const Login = () => {
       <h4>You can also Log in with email and password </h4>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Control name="email" type="email" placeholder="Enter email" required/>
         
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Control name="password" type="password" placeholder="Password" required />
       </Form.Group>
       <small className='mb-2'>New user, Please <Link to='/register'> Register..</Link>  </small> <br />
       <Form.Text className="text-danger">
