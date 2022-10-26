@@ -1,8 +1,12 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const {user}=useContext(AuthContext);
+
     return (
         <Navbar  bg="light" expand="lg">
       <Container>
@@ -26,6 +30,7 @@ const Header = () => {
             <Link className=' me-2 text-decoration-none' to="/blog">Blog</Link>
             <Link className=' me-2 text-decoration-none' to="/login">Log in</Link>
             <Link className=' me-2 text-decoration-none' to="/register">Register</Link>
+            {/* <p>{user?.displayName}</p> */}
             
           </Nav>
         </Navbar.Collapse>
