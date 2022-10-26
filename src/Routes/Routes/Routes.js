@@ -9,6 +9,7 @@ import FaQ from "../../Pages/FaQ";
 import HeadCaru from "../../Pages/HeadCaru";
 import Login from "../../Pages/Login";
 import Register from "../../Pages/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
 
@@ -35,7 +36,7 @@ export  const routes=createBrowserRouter([
                 },
                 {
                     path:'/courses/1/date:id',
-                    element:<CheckOut></CheckOut>,
+                    element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
                     loader:({params})=> fetch(`http://localhost:5000/courses/1/date${params.id}`)
                 }
 
