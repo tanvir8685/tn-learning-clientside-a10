@@ -1,8 +1,9 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
+import { FaUser } from "react-icons/fa";
 
 const Header = () => {
     const {user}=useContext(AuthContext);
@@ -30,7 +31,15 @@ const Header = () => {
             <Link className=' me-2 text-decoration-none' to="/blog">Blog</Link>
             <Link className=' me-2 text-decoration-none' to="/login">Log in</Link>
             <Link className=' me-2 text-decoration-none' to="/register">Register</Link>
-            {/* <p>{user?.displayName}</p> */}
+            <p>{user?.displayName}</p>
+            {
+                user.photoURL?
+                <Image style={{height:'40px'}} roundedCircle src={user?.photoURL} alt="" />
+                :
+                <FaUser></FaUser>
+
+            }
+            
             
           </Nav>
         </Navbar.Collapse>
