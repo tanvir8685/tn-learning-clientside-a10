@@ -1,6 +1,9 @@
 import React from 'react';
 import {  Button, Card } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
+import Pdf from 'react-to-pdf';
+
+const ref=React.createRef();
 
 const Course = () => {
     const subject=useLoaderData();
@@ -8,9 +11,13 @@ const Course = () => {
     const {course_name,course_id,img,details,duration,classT}=subject;
     return (
         <div>
+          
             
-            <Card className='border border-info rounded'  >
+            <Card className='border border-info rounded' ref={ref} >
             <Card.Title className='mx-5 mt-2 fs-1 fw-bold'>{course_name}</Card.Title>
+            <Pdf targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+      </Pdf>
       <Card.Img className='px-5' height='350' variant="top" src={img} />
       <Card.Body className='px-5'>
         

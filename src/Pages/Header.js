@@ -9,7 +9,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
 const Header = () => {
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(true);
     const { user, logOut, handleUpdateUserProfile } = useContext(AuthContext);
     console.log(user?.displayName)
     console.log(handleUpdateUserProfile)
@@ -56,7 +56,7 @@ const Header = () => {
                                             <FaUser data-toggle="tooltip" data-placement="left" title={user?.displayName}></FaUser>
 
                                     }
-                                    <Button onClick={handleLogOut} variant="outline-info" size="sm" className='mx-3' >Log Out</Button>
+                                    <Button onClick={handleLogOut} variant="outline-info" size="sm" className='mx-3 mb-2' >Log Out</Button>
                                 </>
 
 
@@ -69,11 +69,12 @@ const Header = () => {
 
 
                         }
-                        <>
+                        < >
                             <ButtonGroup className="mb-2">
                                 <ToggleButton
                                     id="toggle-check"
                                     type="checkbox"
+                                    
                                     variant="dark"
                                     checked={checked}
                                     value="1"
@@ -86,12 +87,12 @@ const Header = () => {
                                 className="mb-2"
                                 id="toggle-check"
                                 type="checkbox"
-                                variant="outline-primary"
+                                variant="outline-info"
                                 checked={checked}
                                 value="1"
                                 onChange={(e) => setChecked(e.currentTarget.checked)}
                             >
-                                light
+                                Light
                             </ToggleButton>
 
 
