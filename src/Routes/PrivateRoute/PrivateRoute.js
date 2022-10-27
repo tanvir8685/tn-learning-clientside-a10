@@ -8,7 +8,12 @@ const PrivateRoute = ({children}) => {
     const {user,loading}=useContext(AuthContext);
     const location =useLocation();
     if(loading){
-        return <Spinner animation="grow" variant="info" />
+        return (
+            <div><Spinner animation="grow" variant="info" />
+            <p>if you 1st time registerd with new id please reload the page other wise ignore it</p></div>
+        
+        
+        )
     }
     
     if(!user){

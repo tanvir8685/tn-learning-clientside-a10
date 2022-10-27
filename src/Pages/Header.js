@@ -6,7 +6,9 @@ import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { FaUser } from "react-icons/fa";
 
 const Header = () => {
-    const { user,logOut } = useContext(AuthContext);
+    const { user,logOut,handleUpdateUserProfile } = useContext(AuthContext);
+    console.log(user?.displayName)
+    console.log(handleUpdateUserProfile)
 
     const handleLogOut=()=>{
         logOut()
@@ -44,9 +46,9 @@ const Header = () => {
                                     {
 
                                         user?.photoURL ?
-                                            <Image style={{ height: '40px' }} roundedCircle src={user?.photoURL} alt="" />
+                                            <Image data-toggle="tooltip" data-placement="left" title={user?.displayName} style={{ height: '40px' }} roundedCircle src={user?.photoURL} alt="" />
                                             :
-                                            <FaUser></FaUser>
+                                            <FaUser data-toggle="tooltip" data-placement="left" title={user?.displayName}></FaUser>
 
                                     }
                                     <Button onClick={handleLogOut} variant="outline-info" size="sm" className='mx-3' >Log Out</Button>
