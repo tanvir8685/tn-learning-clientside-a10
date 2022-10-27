@@ -6,14 +6,14 @@ import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { FaUser } from "react-icons/fa";
 
 const Header = () => {
-    const { user,logOut,handleUpdateUserProfile } = useContext(AuthContext);
+    const { user, logOut, handleUpdateUserProfile } = useContext(AuthContext);
     console.log(user?.displayName)
     console.log(handleUpdateUserProfile)
 
-    const handleLogOut=()=>{
+    const handleLogOut = () => {
         logOut()
-        .then(()=>{})
-        .catch(error=>console.error(error))
+            .then(() => { })
+            .catch(error => console.error(error))
     }
 
     return (
@@ -60,9 +60,12 @@ const Header = () => {
                                     <Link className=' me-2 text-decoration-none' to="/login">Log in</Link>
                                     <Link className=' me-2 text-decoration-none' to="/register">Register</Link>
                                 </>
+
+
+                                    
                         }
 
-
+                        
 
                         {/* <p>{user?.displayName}</p>
                         {

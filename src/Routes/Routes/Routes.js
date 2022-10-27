@@ -7,6 +7,7 @@ import CheckOut from "../../Pages/CheckOut";
 import Course from "../../Pages/Course";
 import FaQ from "../../Pages/FaQ";
 import HeadCaru from "../../Pages/HeadCaru";
+import InvalidPage from "../../Pages/InvalidPage";
 import Login from "../../Pages/Login";
 import Register from "../../Pages/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -38,7 +39,9 @@ export  const routes=createBrowserRouter([
                     path:'/courses/1/date:id',
                     element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
                     loader:({params})=> fetch(`https://tn-learning-server.vercel.app/courses/1/date${params.id}`)
-                }
+                },
+                
+        
 
             ]
            },
@@ -57,10 +60,15 @@ export  const routes=createBrowserRouter([
            {
             path:'/blog',
             element:<Blog></Blog>
-           }
-
+           },
+           {
+            path:'*',
+            element:<InvalidPage></InvalidPage>
+           },
+           
 
         ]
+        
         
     },
     
