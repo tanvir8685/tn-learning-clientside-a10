@@ -46,7 +46,8 @@ const Header = () => {
                                     {
 
                                         user?.photoURL ?
-                                            <Image data-toggle="tooltip" data-placement="left" title={user?.displayName} style={{ height: '40px' }} roundedCircle src={user?.photoURL} alt="" />
+                                            <Image className='d-none d-lg-block' data-toggle="tooltip" data-placement="left" title={user?.displayName ? 
+                                                user.displayName: 'mr default'} style={{ height: '6vh' }} roundedCircle src={user?.photoURL} alt="" />
                                             :
                                             <FaUser data-toggle="tooltip" data-placement="left" title={user?.displayName}></FaUser>
 
@@ -57,7 +58,7 @@ const Header = () => {
 
                                 :
                                 <>
-                                    <Link className=' me-2 text-decoration-none' to="/login">Log in</Link>
+                                    <Link className=' me-2 text-decoration-none' to="/login">Login</Link>
                                     <Link className=' me-2 text-decoration-none' to="/register">Register</Link>
                                 </>
 

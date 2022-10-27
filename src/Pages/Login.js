@@ -6,7 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle,FaGithub } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useState } from 'react';
 
 
@@ -45,7 +45,8 @@ const Login = () => {
     }
 
 
-    const googleProvider= new GoogleAuthProvider()
+    const googleProvider= new GoogleAuthProvider();
+    const githubProvider= new GithubAuthProvider();
     
 
     const handleGoogleSignIn=()=>{
@@ -57,14 +58,26 @@ const Login = () => {
         })
         .catch(error=>console.error(error));
 
+    };
+    const handleGitSignIn=()=>{
+        providerLogin(githubProvider)
+        .then(result=>{
+            const user =result.user;
+            console.log(user);
+            navigate(from,{replace:true});
+        })
+        .catch(error=>console.error(error));
+
     }
+
+   
     return (
         <div className='container '>
             
             <Form onSubmit={handleSubmit} className='w-50 mx-auto' >
             <ButtonGroup vertical className='text-center' >
       <Button onClick={handleGoogleSignIn} className='mb-2 mt-2'><FaGoogle/> Log in with Google</Button>
-      <Button className='mb-3' variant="dark"><FaGithub></FaGithub> Log in with GitHub</Button>
+      <Button onClick={handleGitSignIn} className='mb-3' variant="dark"><FaGithub></FaGithub> Log in with GitHub</Button>
       </ButtonGroup>
       <h4>You can also Log in with email and password </h4>
       <Form.Group className="mb-3" controlId="formBasicEmail">
