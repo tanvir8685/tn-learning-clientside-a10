@@ -4,8 +4,12 @@ import { Button, Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import { FaUser } from "react-icons/fa";
+import { useState } from 'react';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import ToggleButton from 'react-bootstrap/ToggleButton';
 
 const Header = () => {
+    const [checked, setChecked] = useState(false);
     const { user, logOut, handleUpdateUserProfile } = useContext(AuthContext);
     console.log(user?.displayName)
     console.log(handleUpdateUserProfile)
@@ -46,8 +50,8 @@ const Header = () => {
                                     {
 
                                         user?.photoURL ?
-                                            <Image className='d-none d-lg-block' data-toggle="tooltip" data-placement="left" title={user?.displayName ? 
-                                                user.displayName: 'mr default'} style={{ height: '6vh' }} roundedCircle src={user?.photoURL} alt="" />
+                                            <Image className='d-none d-lg-block' data-toggle="tooltip" data-placement="left" title={user?.displayName ?
+                                                user.displayName : 'mr default'} style={{ height: '6vh' }} roundedCircle src={user?.photoURL} alt="" />
                                             :
                                             <FaUser data-toggle="tooltip" data-placement="left" title={user?.displayName}></FaUser>
 
@@ -63,19 +67,42 @@ const Header = () => {
                                 </>
 
 
-                                    
+
                         }
+                        <>
+                            <ButtonGroup className="mb-2">
+                                <ToggleButton
+                                    id="toggle-check"
+                                    type="checkbox"
+                                    variant="dark"
+                                    checked={checked}
+                                    value="1"
+                                    onChange={(e) => setChecked(e.currentTarget.checked)}
+                                >
+                                    Dark
+                                </ToggleButton>
+                            </ButtonGroup>
+                            <ToggleButton
+                                className="mb-2"
+                                id="toggle-check"
+                                type="checkbox"
+                                variant="outline-primary"
+                                checked={checked}
+                                value="1"
+                                onChange={(e) => setChecked(e.currentTarget.checked)}
+                            >
+                                light
+                            </ToggleButton>
 
-                        
 
-                        {/* <p>{user?.displayName}</p>
-                        {
-                            user.photoURL ?
-                                <Image style={{ height: '40px' }} roundedCircle src={user?.photoURL} alt="" />
-                                :
-                                <FaUser></FaUser>
 
-                        } */}
+                        </>
+
+
+
+
+
+
 
 
                     </Nav>
