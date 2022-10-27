@@ -31,13 +31,13 @@ export  const routes=createBrowserRouter([
                 {
                     path:'/courses/:id',
                     element:<Course></Course>,
-                    loader:({params})=> fetch(`http://localhost:5000/courses/${params.id}`)
+                    loader:({params})=> fetch(`https://tn-learning-server.vercel.app/courses/${params.id}`)
 
                 },
                 {
                     path:'/courses/1/date:id',
                     element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                    loader:({params})=> fetch(`http://localhost:5000/courses/1/date${params.id}`)
+                    loader:({params})=> fetch(`https://tn-learning-server.vercel.app/courses/1/date${params.id}`)
                 }
 
             ]

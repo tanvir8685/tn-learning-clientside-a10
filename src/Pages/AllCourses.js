@@ -6,7 +6,7 @@ import Subject from './Subject';
 const AllCourses = () => {
     const [subjects,setSubjects]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/courses')
+        fetch('https://tn-learning-server.vercel.app/courses')
         .then(res=>res.json())
         .then(data=>setSubjects(data))
     },[])
